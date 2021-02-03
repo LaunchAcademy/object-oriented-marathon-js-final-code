@@ -1,19 +1,27 @@
 class Employee {
   constructor(firstName, lastName, title = 'Zookeeper') {
-    this.firstName = firstName
-    this.lastName = lastName
-    // this.title = title || 'Zookeeper'
-    this.title = title
+  // constructor(firstName, lastName, title) {
+    this.firstName = firstName;
+    this.lastName = lastName;
+    this.title = title;
+    // this.title = title || 'Zookeeper';
   }
 
   fullTitle() {
-    // return this.firstName + ' ' + this.lastName + ', ' + this.title
-    return `${this.firstName} ${this.lastName}, ${this.title}`
+
+    return `${this.fullName()}, ${this.title}`;
   }
 
   greet() {
-    return `${this.firstName} ${this.lastName} waved hello!`
+    //let fullName = fullName();
+
+    return `${this.fullName()} waved hello!`;
+  }
+
+  // helper method
+  fullName() {
+    return `${this.firstName} ${this.lastName}`;
   }
 }
 
-export default Employee
+export default Employee;

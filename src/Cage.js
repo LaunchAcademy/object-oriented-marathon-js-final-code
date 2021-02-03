@@ -1,20 +1,19 @@
 class Cage {
-  constructor() {
-    this.animal = null
+  constructor(){
+    this.animal = null;
   }
 
   isEmpty() {
-    if (this.animal == null) {
-      // if (!this.animal) {
-      return true
+    // // return true if cage is empty
+    // // (this.animal === null)
+    if(this.animal === null) {
+      return true;
+    } else {
+        // return false this.animal
+      return false;
     }
-    return false
-
+    // return this.animal === null;
     // return !this.animal
-  }
-
-  addAnimalIntoCage(animal) {
-    this.animal = animal
   }
 }
 
