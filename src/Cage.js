@@ -1,6 +1,6 @@
 class Cage {
   constructor(){
-    this.animal=null
+    this.animal = null
   }
 
   isEmpty(){
