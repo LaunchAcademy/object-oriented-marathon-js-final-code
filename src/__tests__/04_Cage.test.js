@@ -8,8 +8,10 @@ describe('A Cage', () => {
     cage = new Cage()
   })
 
-  it('should be created with no animal inside', () => {
-    expect(cage.animal).toEqual(null)
+  describe('when a cage is created', () => {
+    it('should be created with no animal inside', () => {
+      expect(cage.animal).toEqual(null)
+    })
   })
 
   describe('#isEmpty', () => {

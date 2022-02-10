@@ -9,16 +9,18 @@ describe('A Fox', () => {
     fox = new Fox(foxName)
   })
 
-  it('has a name', () => {
+  it('is instantiated with a name', () => {
     expect(fox.name).toEqual(foxName)
   })
 
-  it('#speak says what foxes say', () => {
-    expect(fox.speak()).toEqual('Ring-ding-ding-ding-dingeringeding!')
+  it("makes sure you haven't hardcoded the fox's name", () => {
+    let secondFox = new Fox('Robin Hood')
+    expect(secondFox.name).toEqual('Robin Hood')
   })
 
-  it("makes sure you haven't hardcoded the name", () => {
-    let newFox = new Fox('Robin Hood')
-    expect(newFox.name).toEqual('Robin Hood')
+  describe('#speak', () => {
+    it('says what foxes say', () => {
+      expect(fox.speak()).toEqual('Ring-ding-ding-ding-dingeringeding!')
+    })
   })
 })

@@ -12,17 +12,17 @@ describe('A Zoo', () => {
     zoo = new Zoo('The First Zoo in Outer Space')
   })
 
-  it('has a name', () => {
+  it('is instantiated with a name', () => {
     expect(zoo.name).toEqual('The First Zoo in Outer Space')
   })
 
-  it('should create 10 cages by default, and assign them to the cages property', () => {
+  it('should be instantiated with 10 cages by default, and assign them to the cages property', () => {
     expect(zoo.cages).toHaveLength(10)
     expect(zoo.cages[0]).toBeInstanceOf(Cage)
   })
 
   describe('#addEmployee', () => {
-    it('should be able to have employees', () => {
+    it('should add an employee to the zoo', () => {
       let newEmployee = new Employee('Roger', 'Rabbit')
       zoo.addEmployee(newEmployee)
 
@@ -38,14 +38,14 @@ describe('A Zoo', () => {
       expect(zoo.cages[0].animal.name).toEqual('Kit')
     })
 
-    it('should not add an animal to all of the open cages', () => {
+    it('should not add an animal to the rest of the open cages', () => {
       let newAnimal = new Fox('Kit')
       zoo.addAnimal(newAnimal)
 
       expect(zoo.cages[1].isEmpty()).toEqual(true)
     })
 
-    it('should return a message that all of the cages are full if cages are filled', () => {
+    it('should return a message that all of the cages are full if all cages contain an animal', () => {
       let newAnimal = new Fox('Kit')
       zoo.addAnimal(newAnimal)
       zoo.addAnimal(newAnimal)
@@ -57,13 +57,13 @@ describe('A Zoo', () => {
       zoo.addAnimal(newAnimal)
       zoo.addAnimal(newAnimal)
       zoo.addAnimal(newAnimal)
-      debugger
+
       expect(zoo.addAnimal(newAnimal)).toEqual('All of the cages are full!')
     })
   })
 
   describe('#visit', () => {
-    it('should allow someone to visit and be greeted by each employee and animal', () => {
+    it('should allow someone to visit and be spoken to by each animal and greeted by each employee', () => {
       let animalOne = new Snake('Sir Hiss')
       let animalTwo = new Gorilla('Bob')
       let employeeOne = new Employee('Jojo', 'The Great')
