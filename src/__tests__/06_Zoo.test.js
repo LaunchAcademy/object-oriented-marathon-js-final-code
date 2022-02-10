@@ -16,6 +16,11 @@ describe('A Zoo', () => {
     expect(zoo.name).toEqual('The First Zoo in Outer Space')
   })
 
+  it('is instantiated with an empty employees array', () => {
+    expect(zoo.employees).toBeInstanceOf(Array)
+    expect(zoo.employees).toHaveLength(0)
+  })
+
   it('should be instantiated with 10 cages by default, and assign them to the cages property', () => {
     expect(zoo.cages).toHaveLength(10)
     expect(zoo.cages[0]).toBeInstanceOf(Cage)
