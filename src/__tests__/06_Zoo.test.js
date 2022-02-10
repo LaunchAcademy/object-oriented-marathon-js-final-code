@@ -1,57 +1,57 @@
-import Zoo from '../Zoo.js'
-import Employee from '../Employee.js'
-import Fox from '../Fox.js'
-import Snake from '../Snake.js'
-import Gorilla from '../Gorilla.js'
-import Cage from '../Cage.js'
+import Zoo from "../Zoo.js"
+import Employee from "../Employee.js"
+import Fox from "../Fox.js"
+import Snake from "../Snake.js"
+import Gorilla from "../Gorilla.js"
+import Cage from "../Cage.js"
 
-describe('A Zoo', () => {
+describe("A Zoo", () => {
   let zoo
 
   beforeEach(() => {
-    zoo = new Zoo('The First Zoo in Outer Space')
+    zoo = new Zoo("The First Zoo in Outer Space")
   })
 
-  it('is instantiated with a name', () => {
-    expect(zoo.name).toEqual('The First Zoo in Outer Space')
+  it("is instantiated with a name", () => {
+    expect(zoo.name).toEqual("The First Zoo in Outer Space")
   })
 
-  it('is instantiated with an empty employees array', () => {
+  it("is instantiated with an empty employees array", () => {
     expect(zoo.employees).toBeInstanceOf(Array)
     expect(zoo.employees).toHaveLength(0)
   })
 
-  it('should be instantiated with 10 cages by default, and assign them to the cages property', () => {
+  it("should be instantiated with 10 cages by default, and assign them to the cages property", () => {
     expect(zoo.cages).toHaveLength(10)
     expect(zoo.cages[0]).toBeInstanceOf(Cage)
   })
 
-  describe('#addEmployee', () => {
-    it('should add an employee to the zoo', () => {
-      let newEmployee = new Employee('Roger', 'Rabbit')
+  describe("#addEmployee", () => {
+    it("should add an employee to the zoo", () => {
+      let newEmployee = new Employee("Roger", "Rabbit")
       zoo.addEmployee(newEmployee)
 
-      expect(zoo.employees[0].firstName).toEqual('Roger')
+      expect(zoo.employees[0].firstName).toEqual("Roger")
     })
   })
 
-  describe('#addAnimal', () => {
-    it('should add an animal to the first open cage', () => {
-      let newAnimal = new Fox('Kit')
+  describe("#addAnimal", () => {
+    it("should add an animal to the first open cage", () => {
+      let newAnimal = new Fox("Kit")
       zoo.addAnimal(newAnimal)
 
-      expect(zoo.cages[0].animal.name).toEqual('Kit')
+      expect(zoo.cages[0].animal.name).toEqual("Kit")
     })
 
-    it('should not add an animal to the rest of the open cages', () => {
-      let newAnimal = new Fox('Kit')
+    it("should not add an animal to the rest of the open cages", () => {
+      let newAnimal = new Fox("Kit")
       zoo.addAnimal(newAnimal)
 
       expect(zoo.cages[1].isEmpty()).toEqual(true)
     })
 
-    it('should return a message that all of the cages are full if all cages contain an animal', () => {
-      let newAnimal = new Fox('Kit')
+    it("should return a message that all of the cages are full if all cages contain an animal", () => {
+      let newAnimal = new Fox("Kit")
       zoo.addAnimal(newAnimal)
       zoo.addAnimal(newAnimal)
       zoo.addAnimal(newAnimal)
@@ -63,16 +63,16 @@ describe('A Zoo', () => {
       zoo.addAnimal(newAnimal)
       zoo.addAnimal(newAnimal)
 
-      expect(zoo.addAnimal(newAnimal)).toEqual('All of the cages are full!')
+      expect(zoo.addAnimal(newAnimal)).toEqual("All of the cages are full!")
     })
   })
 
-  describe('#visit', () => {
-    it('should allow someone to visit and be spoken to by each animal and greeted by each employee', () => {
-      let animalOne = new Snake('Sir Hiss')
-      let animalTwo = new Gorilla('Bob')
-      let employeeOne = new Employee('Jojo', 'The Great')
-      let employeeTwo = new Employee('Derek', 'Zoolander')
+  describe("#visit", () => {
+    it("should allow someone to visit and be spoken to by each animal and greeted by each employee", () => {
+      let animalOne = new Snake("Sir Hiss")
+      let animalTwo = new Gorilla("Bob")
+      let employeeOne = new Employee("Jojo", "The Great")
+      let employeeTwo = new Employee("Derek", "Zoolander")
 
       zoo.addAnimal(animalOne)
       zoo.addAnimal(animalTwo)
@@ -80,7 +80,7 @@ describe('A Zoo', () => {
       zoo.addEmployee(employeeTwo)
 
       expect(zoo.visit()).toEqual(
-        'Sssssire, ssssire, they may be banditsssss\nBob got a bad feeling about this...\nJojo The Great waved hello!\nDerek Zoolander waved hello!\n'
+        "Sssssire, ssssire, they may be banditsssss\nBob got a bad feeling about this...\nJojo The Great waved hello!\nDerek Zoolander waved hello!\n"
       )
     })
   })
